@@ -1,10 +1,21 @@
 import React from 'react';
+
+import {Videoplayer} from '../videoplayer/videoplayer';
 // eslint-disable-next-line
-export const MovieCard = ({ movie, hoverHandler }) => (
-  <article className="small-movie-card catalog__movies-card" onMouseOver={hoverHandler(movie)}>
+export const MovieCard = ({ movie, hoverHandler, leaveHandler, activeCard }) => (
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={hoverHandler(movie)}
+    onMouseLeave={leaveHandler}
+  >
     <div className="small-movie-card__image">
-      {// eslint-disable-next-line
-      <img src={`img/${movie.src}`} alt={movie.name} width="280" height="175" />}
+      {
+        movie === activeCard
+          // eslint-disable-next-line
+          ? <Videoplayer src={movie.preview} />
+          // eslint-disable-next-line
+          : <img src={`img/${movie.src}`} alt={movie.name} width="280" height="175" />
+      }
     </div>
     <h3 className="small-movie-card__title">
       {// eslint-disable-next-line
