@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import {MovieCard} from '../movie-card/movie-card';
 import {useVideoTimer, useFilteredFilms} from './hooks';
 import {useAppContext} from '../../reducer/reducer';
 
-// eslint-disable-next-line
 export const FilmsList = () => {
   const {
     activeCard,
@@ -12,19 +11,38 @@ export const FilmsList = () => {
     leaveHandler,
   } = useVideoTimer();
   const {state} = useAppContext();
-  const {movies} = useFilteredFilms(state.genre, state.filmsList);
+  const {
+    movies,
+    showMoreClickHandler,
+    areAllMoviesLoaded,
+  } = useFilteredFilms(state.genre, state.filmsList);
   return (
-    <div className="catalog__movies-list">
-      {// eslint-disable-next-line
-        movies.map((movie, i) => 
-          <MovieCard
-            movie={movie}
-            hoverHandler={hoverHandler}
-            leaveHandler={leaveHandler}
-            activeCard={activeCard}
-            key={i}
-          />)
+    <Fragment>
+      <div className="catalog__movies-list">
+        {
+          movies.map((movie, i) =>
+            <MovieCard
+              movie={movie}
+              hoverHandler={hoverHandler}
+              leaveHandler={leaveHandler}
+              activeCard={activeCard}
+              key={i}
+            />)
+        }
+      </div>
+      {
+        !areAllMoviesLoaded && (
+          <div className="catalog__more">
+            <button
+              className="catalog__button"
+              type="button"
+              onClick={showMoreClickHandler}
+            >
+            Show more
+            </button>
+          </div>
+        )
       }
-    </div>
+    </Fragment>
   );
 };

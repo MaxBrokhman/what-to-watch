@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Videoplayer} from '../videoplayer/videoplayer';
 // eslint-disable-next-line
-export const MovieCard = ({ movie, hoverHandler, leaveHandler, activeCard }) => (
+export const MovieCard = ({movie, hoverHandler, leaveHandler, activeCard}) => (
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={hoverHandler(movie)}
