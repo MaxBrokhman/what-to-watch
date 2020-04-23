@@ -2,7 +2,7 @@ import {useContext, createContext} from 'react';
 
 import {films} from '../mocks/films';
 
-const initialState = {
+export const initialState = {
   genre: ``,
   filmsList: films,
 };
