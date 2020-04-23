@@ -23,9 +23,9 @@ export const useVideoTimer = () => {
 };
 
 export const useFilteredFilms = (genre, movies) => {
-  const filteredMovies = genre
-    ? movies.filter((film) => film.genre === genre)
-    : movies;
+  const filteredMovies = genre === `all genres`
+    ? movies
+    : movies.filter((film) => film.genre === genre);
   return {
     movies: filteredMovies,
   };

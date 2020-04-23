@@ -16,13 +16,14 @@ exports[`Renders MainPage component correctly 1`] = `
       className="catalog__genres-list"
     >
       <li
-        className="catalog__genres-item catalog__genres-item--active"
+        className="catalog__genres-item"
       >
         <a
           className="catalog__genres-link"
           href="#"
+          onClick={[Function]}
         >
-          All genres
+          all genres
         </a>
       </li>
       <li
@@ -31,8 +32,9 @@ exports[`Renders MainPage component correctly 1`] = `
         <a
           className="catalog__genres-link"
           href="#"
+          onClick={[Function]}
         >
-          Comedies
+          fantasy
         </a>
       </li>
       <li
@@ -41,8 +43,9 @@ exports[`Renders MainPage component correctly 1`] = `
         <a
           className="catalog__genres-link"
           href="#"
+          onClick={[Function]}
         >
-          Crime
+          drama
         </a>
       </li>
       <li
@@ -51,8 +54,9 @@ exports[`Renders MainPage component correctly 1`] = `
         <a
           className="catalog__genres-link"
           href="#"
+          onClick={[Function]}
         >
-          Documentary
+          thriller
         </a>
       </li>
       <li
@@ -61,58 +65,9 @@ exports[`Renders MainPage component correctly 1`] = `
         <a
           className="catalog__genres-link"
           href="#"
+          onClick={[Function]}
         >
-          Dramas
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item"
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-        >
-          Horror
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item"
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-        >
-          Kids & Family
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item"
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-        >
-          Romance
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item"
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-        >
-          Sci-Fi
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item"
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-        >
-          Thrillers
+          comedy
         </a>
       </li>
     </ul>

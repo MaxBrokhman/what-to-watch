@@ -3,7 +3,7 @@ import {useContext, createContext} from 'react';
 import {films} from '../mocks/films';
 
 export const initialState = {
-  genre: ``,
+  genre: `all genres`,
   filmsList: films,
 };
 
@@ -18,7 +18,7 @@ export const useAppContext = () => useContext(Context);
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `SET_FILTER`:
+    case `SET_GENRE`:
       return Object.assign({}, state, {
         genre: action.payload,
       });
