@@ -11,8 +11,14 @@ export const MovieCard = ({movie, hoverHandler, leaveHandler, activeCard}) => (
     <div className="small-movie-card__image">
       {
         movie === activeCard
-          // eslint-disable-next-line
-          ? <Videoplayer src={movie.preview} />
+          ? <Videoplayer
+            // eslint-disable-next-line
+            src={movie.preview}
+            width="280"
+            height="175"
+            autoPlay
+            muted
+          />
           // eslint-disable-next-line
           : <img src={`img/${movie.src}`} alt={movie.name} width="280" height="175" />
       }

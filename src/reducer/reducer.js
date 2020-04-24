@@ -5,6 +5,7 @@ import {films} from '../mocks/films';
 export const initialState = {
   genre: `all genres`,
   filmsList: films,
+  activeMovie: null,
 };
 
 const initialContext = {
@@ -21,6 +22,10 @@ export const reducer = (state = initialState, action) => {
     case `SET_GENRE`:
       return Object.assign({}, state, {
         genre: action.payload,
+      });
+    case `SET_ACTIVE_MOVIE`:
+      return Object.assign({}, state, {
+        activeMovie: action.payload,
       });
     default:
       return state;

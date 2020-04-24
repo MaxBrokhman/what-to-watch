@@ -102,6 +102,7 @@ Array [
           >
             <button
               className="btn btn--play movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -110,7 +111,7 @@ Array [
                 width="19"
               >
                 <use
-                  xlink="href=#play-s"
+                  xlinkHref="#play-s"
                 />
               </svg>
               <span>
@@ -127,7 +128,7 @@ Array [
                 width="19"
               >
                 <use
-                  xlink="href=#add"
+                  xlinkHref="#add"
                 />
               </svg>
               <span>
