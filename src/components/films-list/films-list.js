@@ -20,13 +20,13 @@ export const FilmsList = () => {
     <Fragment>
       <div className="catalog__movies-list">
         {
-          movies.map((movie, i) =>
+          movies.map((movie) =>
             <MovieCard
               movie={movie}
               hoverHandler={hoverHandler}
               leaveHandler={leaveHandler}
               activeCard={activeCard}
-              key={i}
+              key={movie.id}
             />)
         }
       </div>

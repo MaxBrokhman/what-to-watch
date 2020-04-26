@@ -1,11 +1,11 @@
 import {useContext, createContext} from 'react';
 
-import {films} from '../mocks/films';
-
 export const initialState = {
   genre: `all genres`,
-  filmsList: films,
+  filmsList: [],
   activeMovie: null,
+  isFetching: false,
+  error: null,
 };
 
 const initialContext = {
@@ -27,6 +27,12 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         activeMovie: action.payload,
       });
+    case `SET_FILMS`:
+      return Object.assign({}, state, {filmsList: action.payload});
+    case `SET_ERROR`:
+      return Object.assign({}, state, {error: action.payload});
+    case `SET_FETCHING`:
+      return Object.assign({}, state, {isFetching: action.payload});
     default:
       return state;
   }

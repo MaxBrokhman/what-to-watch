@@ -7,7 +7,6 @@ exports[`Renders MoviePlayer component correctly 1`] = `
   <video
     className="player__video"
     poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-    src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   />
   <button
     className="player__exit"
@@ -44,7 +43,7 @@ exports[`Renders MoviePlayer component correctly 1`] = `
       <div
         className="player__time-value"
       >
-        1:30:29
+        01:28:00
       </div>
     </div>
     <div

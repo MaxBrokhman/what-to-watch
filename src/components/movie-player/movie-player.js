@@ -1,7 +1,7 @@
 import React, {Fragment, useRef} from 'react';
 
 import {Videoplayer} from '../videoplayer/videoplayer';
-import {useMoviePlayer} from './hooks';
+import {useMoviePlayer, useMovieRuntime} from './hooks';
 
 // eslint-disable-next-line
 export const MoviePlayer = ({onVideoExit, movie}) => {
@@ -12,6 +12,8 @@ export const MoviePlayer = ({onVideoExit, movie}) => {
     fullscreenButtonHandler,
     isControlsVisible,
   } = useMoviePlayer(videoRef);
+  // eslint-disable-next-line
+  const {time} = useMovieRuntime(movie.run_time)
   return (
     <div className="player">
       <Videoplayer
@@ -20,7 +22,7 @@ export const MoviePlayer = ({onVideoExit, movie}) => {
         className="player__video"
         ref={videoRef}
         // eslint-disable-next-line
-        poster={`img/${movie.src}`}
+        poster={movie.background_image}
       />
 
       {isControlsVisible && (
@@ -33,7 +35,7 @@ export const MoviePlayer = ({onVideoExit, movie}) => {
                 <progress className="player__progress" value="30" max="100"></progress>
                 <div className="player__toggler" style={{left: `30%`}}>Toggler</div>
               </div>
-              <div className="player__time-value">1:30:29</div>
+              <div className="player__time-value">{time}</div>
             </div>
 
             <div className="player__controls-row">

@@ -1,4 +1,11 @@
-import {setActiveMovie} from '../../reducer/actions';
+import {useEffect} from 'react';
+
+import {
+  setActiveMovie,
+  setError,
+  setFilms,
+} from '../../reducer/actions';
+import {sendRequest} from '../../api/api';
 
 export const useActiveMovie = (dispatch) => {
   const startVideoButtonHandler = (movie) => (evt) => {
@@ -15,4 +22,21 @@ export const useActiveMovie = (dispatch) => {
     startVideoButtonHandler,
     exitButtonHandler,
   };
+};
+
+export const useFetchedFilms = (dispatch) => {
+  const onFailure = () => {
+    setError({
+      message: `Films are not available right now. Please, try again later`,
+    }, dispatch);
+  };
+  useEffect(() => {
+    sendRequest({
+      url: `/films`,
+      onSuccess: setFilms,
+      onFailure,
+      dispatch,
+      method: `get`,
+    });
+  }, []);
 };
