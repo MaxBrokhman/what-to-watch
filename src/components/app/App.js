@@ -9,11 +9,19 @@ import {
   initialState,
   Context
 } from '../../reducer/reducer';
+import {SignIn} from '../sign-in/sign-in';
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {startVideoButtonHandler, exitButtonHandler} = useActiveMovie(dispatch);
   useFetchedFilms(dispatch);
+  if (state.isAuthorizationRequired) {
+    return (
+      <Context.Provider value={{state, dispatch}}>
+        <SignIn />
+      </Context.Provider>
+    );
+  }
   return (
     <Context.Provider value={{state, dispatch}}>
       {
@@ -25,6 +33,7 @@ export const App = () => {
                 <MainMovieCard
                   onVideoStart={startVideoButtonHandler}
                   movie={state.filmsList[0]}
+                  user={state.user}
                 />
               )
             }

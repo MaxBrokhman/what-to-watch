@@ -22,3 +22,13 @@ export const setError = (error, dispatch) => dispatch({
   type: `SET_ERROR`,
   payload: error,
 });
+
+export const setIsAuthorizationRequired = (status, dispatch) => dispatch({
+  type: `SET_AUTHORIZATION`,
+  payload: status,
+});
+
+export const setUser = (user, dispatch) => dispatch({
+  type: `SET_USER`,
+  payload: user,
+});

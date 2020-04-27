@@ -1,7 +1,7 @@
 import React from 'react';
 
 // eslint-disable-next-line
-export const MainMovieCard = ({onVideoStart, movie}) => (
+export const MainMovieCard = ({onVideoStart, movie, user}) => (
   <section className="movie-card">
     <div className="movie-card__bg">
       {// eslint-disable-next-line
@@ -21,7 +21,12 @@ export const MainMovieCard = ({onVideoStart, movie}) => (
 
       <div className="user-block">
         <div className="user-block__avatar">
-          <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
+          {
+            user
+              // eslint-disable-next-line
+              ? <img src={`https://htmlacademy-react-2.appspot.com/${user.avatar_url}`} alt="User avatar" width="63" height="63" />
+              : <a href="#">Sign In</a>
+          }
         </div>
       </div>
     </header>

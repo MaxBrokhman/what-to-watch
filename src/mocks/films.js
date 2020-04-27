@@ -6,7 +6,9 @@ export const films = [
     preview_video_link: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `fantasy`,
     background_image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    poster_image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     run_time: 88,
+    released: 2003,
   },
   {
     name: `Bohemian Rhapsody`,
@@ -14,7 +16,9 @@ export const films = [
     preview_video_link: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `drama`,
     background_image: `img/bohemian-rhapsody.jpg`,
+    poster_image: `img/bohemian-rhapsody.jpg`,
     run_time: 88,
+    released: 2003,
   },
   {
     name: `Macbeth`,
@@ -22,7 +26,9 @@ export const films = [
     preview_video_link: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `drama`,
     background_image: `img/macbeth.jpg`,
+    poster_image: `img/macbeth.jpg`,
     run_time: 88,
+    released: 2003,
   },
   {
     name: `Aviator`,
@@ -30,7 +36,9 @@ export const films = [
     preview_video_link: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `thriller`,
     background_image: `img/aviator.jpg`,
+    poster_image: `img/aviator.jpg`,
     run_time: 88,
+    released: 2003,
   },
   {
     name: `We need to talk about Kevin`,
@@ -38,6 +46,8 @@ export const films = [
     preview_video_link: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     genre: `comedy`,
     background_image: `img/we-need-to-talk-about-kevin.jpg`,
+    poster_image: `img/we-need-to-talk-about-kevin.jpg`,
     run_time: 88,
+    released: 2003,
   }
 ];
