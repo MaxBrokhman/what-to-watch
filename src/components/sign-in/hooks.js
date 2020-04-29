@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import {sendRequest} from '../../api/api';
 import {
@@ -12,6 +13,7 @@ export const useAuthorization = () => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const {dispatch} = useAppContext();
+  const history = useHistory();
   const emailInputHandler = (evt) => {
     setEmail(evt.target.value);
   };
@@ -21,6 +23,7 @@ export const useAuthorization = () => {
   const onSuccess = (response, innerDispatch) => {
     setUser(response, innerDispatch);
     setIsAuthorizationRequired(false, innerDispatch);
+    history.push(`/`);
   };
   const onFailure = () => {
     setError({

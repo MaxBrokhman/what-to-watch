@@ -1,11 +1,16 @@
 import React, {Fragment, useRef} from 'react';
 
 import {Videoplayer} from '../videoplayer/videoplayer';
-import {useMoviePlayer, useMovieRuntime} from './hooks';
+import {useMoviePlayer} from './hooks';
+import {useMovieRuntime} from '../../common-hooks/use-movie-runtime';
+import {useMovieById} from '../../common-hooks/use-movie-by-id';
+import {useAppContext} from '../../reducer/reducer';
 
 // eslint-disable-next-line
-export const MoviePlayer = ({onVideoExit, movie}) => {
+export const MoviePlayer = ({onVideoExit, id}) => {
   const videoRef = useRef(null);
+  const {state} = useAppContext();
+  const {movie} = useMovieById(id, state.filmsList);
   const {
     playClickHandler,
     playButtonIcon,
@@ -35,7 +40,7 @@ export const MoviePlayer = ({onVideoExit, movie}) => {
                 <progress className="player__progress" value="30" max="100"></progress>
                 <div className="player__toggler" style={{left: `30%`}}>Toggler</div>
               </div>
-              <div className="player__time-value">{time}</div>
+              <div className="player__time-value">{time.full}</div>
             </div>
 
             <div className="player__controls-row">

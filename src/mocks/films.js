@@ -9,6 +9,7 @@ export const films = [
     poster_image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     run_time: 88,
     released: 2003,
+    id: 1,
   },
   {
     name: `Bohemian Rhapsody`,
@@ -19,6 +20,7 @@ export const films = [
     poster_image: `img/bohemian-rhapsody.jpg`,
     run_time: 88,
     released: 2003,
+    id: 2,
   },
   {
     name: `Macbeth`,
@@ -29,6 +31,7 @@ export const films = [
     poster_image: `img/macbeth.jpg`,
     run_time: 88,
     released: 2003,
+    id: 3,
   },
   {
     name: `Aviator`,
@@ -39,6 +42,7 @@ export const films = [
     poster_image: `img/aviator.jpg`,
     run_time: 88,
     released: 2003,
+    id: 4,
   },
   {
     name: `We need to talk about Kevin`,
@@ -49,5 +53,6 @@ export const films = [
     poster_image: `img/we-need-to-talk-about-kevin.jpg`,
     run_time: 88,
     released: 2003,
+    id: 5
   }
 ];

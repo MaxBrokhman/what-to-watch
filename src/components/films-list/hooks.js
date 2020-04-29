@@ -1,4 +1,8 @@
-import {useState, useCallback, useEffect} from 'react';
+import {
+  useState,
+  useCallback,
+  useEffect,
+} from 'react';
 
 const TIMER = 1000;
 const START_LIMIT = 8;
@@ -16,6 +20,13 @@ export const useVideoTimer = () => {
     clearTimeout(timer);
     setActiveCard(null);
   };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer);
+      setActiveCard(null);
+    };
+  }, [timer]);
 
   return {
     activeCard,

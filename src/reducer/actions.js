@@ -3,11 +3,6 @@ export const setGenre = (genre, dispatch) => dispatch({
   payload: genre,
 });
 
-export const setActiveMovie = (movie, dispatch) => dispatch({
-  type: `SET_ACTIVE_MOVIE`,
-  payload: movie,
-});
-
 export const setFilms = (films, dispatch) => dispatch({
   type: `SET_FILMS`,
   payload: films,
@@ -31,4 +26,14 @@ export const setIsAuthorizationRequired = (status, dispatch) => dispatch({
 export const setUser = (user, dispatch) => dispatch({
   type: `SET_USER`,
   payload: user,
+});
+
+export const addFavorite = (favorite, dispatch) => dispatch({
+  type: `ADD_FAVORITE`,
+  payload: favorite,
+});
+
+export const removeFavorite = (id, dispatch) => dispatch({
+  type: `REMOVE_FAVORITE`,
+  payload: id,
 });

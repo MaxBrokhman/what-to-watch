@@ -2,20 +2,19 @@ import React, {Fragment} from 'react';
 
 import {MovieCard} from '../movie-card/movie-card';
 import {useVideoTimer, useFilteredFilms} from './hooks';
-import {useAppContext} from '../../reducer/reducer';
 
-export const FilmsList = () => {
+// eslint-disable-next-line
+export const FilmsList = ({genre, films}) => {
   const {
     activeCard,
     hoverHandler,
     leaveHandler,
   } = useVideoTimer();
-  const {state} = useAppContext();
   const {
     movies,
     showMoreClickHandler,
     areAllMoviesLoaded,
-  } = useFilteredFilms(state.genre, state.filmsList);
+  } = useFilteredFilms(genre, films);
   return (
     <Fragment>
       <div className="catalog__movies-list">

@@ -1,16 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {MoviePlayer} from './movie-player';
+import {MovieDetails} from './movie-details';
 import {films} from '../../mocks/films';
 
-it(`Renders MoviePlayer component correctly`, () => {
-  const onVideoExit = jest.fn();
+it(`Renders MovieDetails component correctly`, () => {
+  const handler = jest.fn();
   const tree = renderer
                 .create(
-                    <MoviePlayer
+                    <MovieDetails
                       id={films[0].id}
-                      onVideoExit={onVideoExit}
+                      startVideoButtonHandler={handler}
                     />
                 )
                 .toJSON();

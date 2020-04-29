@@ -1,21 +1,23 @@
 import {useEffect} from 'react';
 
 import {
-  setActiveMovie,
   setError,
   setFilms,
+  setIsAuthorizationRequired,
 } from '../../reducer/actions';
-import {sendRequest} from '../../api/api';
+import {api, sendRequest} from '../../api/api';
+import {useHistory} from 'react-router-dom';
 
-export const useActiveMovie = (dispatch) => {
-  const startVideoButtonHandler = (movie) => (evt) => {
+export const useActiveMovie = () => {
+  const history = useHistory();
+  const startVideoButtonHandler = (id) => (evt) => {
     evt.preventDefault();
-    setActiveMovie(movie, dispatch);
+    history.push(`watch/${id}`);
   };
 
   const exitButtonHandler = (evt) => {
     evt.preventDefault();
-    setActiveMovie(null, dispatch);
+    history.goBack();
   };
 
   return {
@@ -30,6 +32,11 @@ export const useFetchedFilms = (dispatch) => {
       message: `Films are not available right now. Please, try again later`,
     }, dispatch);
   };
+  api.interceptors.response.use(null, (response) => {
+    if (response.status === 401) {
+      setIsAuthorizationRequired(true, dispatch);
+    }
+  });
   useEffect(() => {
     sendRequest({
       url: `/films`,

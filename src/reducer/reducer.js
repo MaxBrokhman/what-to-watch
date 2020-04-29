@@ -8,6 +8,7 @@ export const initialState = {
   error: null,
   isAuthorizationRequired: false,
   user: null,
+  favorites: [],
 };
 
 const initialContext = {
@@ -25,10 +26,6 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         genre: action.payload,
       });
-    case `SET_ACTIVE_MOVIE`:
-      return Object.assign({}, state, {
-        activeMovie: action.payload,
-      });
     case `SET_FILMS`:
       return Object.assign({}, state, {filmsList: action.payload});
     case `SET_ERROR`:
@@ -39,6 +36,16 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {isAuthorizationRequired: action.payload});
     case `SET_USER`:
       return Object.assign({}, state, {user: action.payload});
+    case `ADD_FAVORITE`:
+      return Object.assign({}, state, {favorites: state.favorites.concat(action.payload)});
+    case `REMOVE_FAVORITE`:
+      const itemToRemoveIdx = state.favorites.findIndex((movie) => movie.id === action.payload);
+      const updatedFavorites = itemToRemoveIdx > -1
+        ? state.favorites
+          .slice(0, itemToRemoveIdx - 1)
+          .concat(state.favorites.slice(itemToRemoveIdx + 1))
+        : state.favorites;
+      return Object.assign({}, state, {favorites: updatedFavorites});
     default:
       return state;
   }

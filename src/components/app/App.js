@@ -1,8 +1,13 @@
-import React, {Fragment, useReducer} from 'react';
+import React, {useReducer} from 'react';
+import {
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
 import {MainPage} from '../main-page/main-page';
 import {MoviePlayer} from '../movie-player/movie-player';
-import {MainMovieCard} from '../main-movie-card/main-movie-card';
+import {MovieDetails} from '../movie-details/movie-details';
 import {useActiveMovie, useFetchedFilms} from './hooks';
 import {
   reducer,
@@ -13,34 +18,43 @@ import {SignIn} from '../sign-in/sign-in';
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {startVideoButtonHandler, exitButtonHandler} = useActiveMovie(dispatch);
+  const {startVideoButtonHandler, exitButtonHandler} = useActiveMovie();
   useFetchedFilms(dispatch);
-  if (state.isAuthorizationRequired) {
-    return (
-      <Context.Provider value={{state, dispatch}}>
-        <SignIn />
-      </Context.Provider>
-    );
-  }
   return (
     <Context.Provider value={{state, dispatch}}>
-      {
-        state.activeMovie
-          ? <MoviePlayer onVideoExit={exitButtonHandler} movie={state.activeMovie} />
-          : (<Fragment>
-            {
-              state.filmsList.length && (
-                <MainMovieCard
-                  onVideoStart={startVideoButtonHandler}
-                  movie={state.filmsList[0]}
-                  user={state.user}
-                />
-              )
-            }
-            <MainPage />
-          </Fragment>
-          )
-      }
+      <Switch>
+        <Route path='/login'>
+          <SignIn />
+        </Route>
+        {
+          state.filmsList.length && <Route path='/movie-card/:id' render={({match}) => (
+            <MovieDetails id={match.params.id} startVideoButtonHandler={startVideoButtonHandler} />
+          )} />
+        }
+        {
+          state.filmsList.length && <Route path='/watch/:id' render={({match}) => {
+            return <MoviePlayer
+              id={match.params.id}
+              onVideoExit={exitButtonHandler}
+            />;
+          }}/>
+        }
+        <Route path='/*'>
+          {
+            state.isAuthorizationRequired && <Redirect exact from='/*' to='/login' />
+          }
+          {
+            !state.activeMovie && !state.isAuthorizationRequired && (
+              <MainPage
+                startVideoButtonHandler={startVideoButtonHandler}
+                films={state.filmsList}
+                user={state.user}
+                genre={state.genre}
+              />
+            )
+          }
+        </Route>
+      </Switch>
     </Context.Provider>
   );
 };

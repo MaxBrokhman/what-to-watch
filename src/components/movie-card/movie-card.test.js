@@ -5,12 +5,15 @@ import {MovieCard} from './movie-card';
 import {films} from '../../mocks/films';
 
 it(`Renders MovieCard component correctly`, () => {
-  const handler = jest.fn();
+  const hoverHandler = jest.fn();
+  const leaveHandler = jest.fn();
   const tree = renderer
                 .create(
                     <MovieCard
+                      hoverHandler={hoverHandler}
                       movie={films[0]}
-                      hoverHandler={handler}
+                      leaveHandler={leaveHandler}
+                      activeCard={null}
                     />
                 )
                 .toJSON();
