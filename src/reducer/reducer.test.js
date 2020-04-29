@@ -54,16 +54,16 @@ describe(`Reducer works as expected`, () => {
     const startState = Object.assign({}, initialState, {favorites: startFavorites});
     const newState = reducer(startState, {type: `REMOVE_FAVORITE`, payload: 1});
     expect(newState.favorites[0]).toMatchObject({id: 2});
-    expect(newState.favorites.length).toBeEqual(5);
+    expect(newState.favorites.length).toEqual(5);
 
     const startState2 = Object.assign({}, initialState, {favorites: startFavorites});
     const newState2 = reducer(startState2, {type: `REMOVE_FAVORITE`, payload: 6});
     expect(newState2.favorites[newState2.favorites.length - 1]).toMatchObject({id: 5});
-    expect(newState2.favorites.length).toBeEqual(5);
+    expect(newState2.favorites.length).toEqual(5);
 
     const startState3 = Object.assign({}, initialState, {favorites: startFavorites});
     const newState3 = reducer(startState3, {type: `REMOVE_FAVORITE`, payload: 4});
     expect(newState3.favorites[3]).toMatchObject({id: 5});
-    expect(newState3.favorites.length).toBeEqual(5);
+    expect(newState3.favorites.length).toEqual(5);
   });
 });

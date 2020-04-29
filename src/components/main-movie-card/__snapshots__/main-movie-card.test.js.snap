@@ -25,6 +25,8 @@ exports[`Renders MainMovieCard component correctly 1`] = `
     >
       <a
         className="logo__link"
+        href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"
@@ -46,15 +48,11 @@ exports[`Renders MainMovieCard component correctly 1`] = `
     <div
       className="user-block"
     >
-      <div
-        className="user-block__avatar"
+      <a
+        href="#"
       >
-        <a
-          href="#"
-        >
-          Sign In
-        </a>
-      </div>
+        Sign In
+      </a>
     </div>
   </header>
   <div
@@ -66,12 +64,17 @@ exports[`Renders MainMovieCard component correctly 1`] = `
       <div
         className="movie-card__poster"
       >
-        <img
-          alt="Fantastic Beasts: The Crimes of Grindelwald"
-          height="327"
-          src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-          width="218"
-        />
+        <a
+          href="/movie-card/1"
+          onClick={[Function]}
+        >
+          <img
+            alt="Fantastic Beasts: The Crimes of Grindelwald"
+            height="327"
+            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+            width="218"
+          />
+        </a>
       </div>
       <div
         className="movie-card__desc"
@@ -117,6 +120,7 @@ exports[`Renders MainMovieCard component correctly 1`] = `
           </button>
           <button
             className="btn btn--list movie-card__button"
+            onClick={[Function]}
             type="button"
           >
             <svg

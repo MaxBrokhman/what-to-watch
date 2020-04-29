@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
 import {MainPage} from './main-page';
@@ -8,11 +9,13 @@ it(`Renders MainPage component correctly`, () => {
   const startVideoButtonHandler = jest.fn();
   const tree = renderer
                 .create(
-                    <MainPage
-                      genre='drama'
-                      startVideoButtonHandler={startVideoButtonHandler}
-                      films={films}
-                    />
+                    <BrowserRouter>
+                      <MainPage
+                        genre='drama'
+                        startVideoButtonHandler={startVideoButtonHandler}
+                        films={films}
+                      />
+                    </BrowserRouter>
                 )
                 .toJSON();
   expect(tree).toMatchSnapshot();

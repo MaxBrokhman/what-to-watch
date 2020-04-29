@@ -1,35 +1,240 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Renders MainPage component correctly 1`] = `
-<div
-  className="page-content"
->
+Array [
   <section
-    className="catalog"
+    className="movie-card"
   >
-    <h2
-      className="catalog__title visually-hidden"
+    <div
+      className="movie-card__bg"
     >
-      Catalog
-    </h2>
-    <ul
-      className="catalog__genres-list"
+      <img
+        alt="Fantastic Beasts: The Crimes of Grindelwald"
+        src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      />
+    </div>
+    <h1
+      className="visually-hidden"
     >
-      <li
-        className="catalog__genres-item"
+      WTW
+    </h1>
+    <header
+      className="page-header movie-card__head"
+    >
+      <div
+        className="logo"
       >
         <a
-          className="catalog__genres-link"
-          href="#"
+          className="logo__link"
+          href="/"
           onClick={[Function]}
         >
-          all genres
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
         </a>
-      </li>
-    </ul>
+      </div>
+      <div
+        className="user-block"
+      >
+        <a
+          href="#"
+        >
+          Sign In
+        </a>
+      </div>
+    </header>
     <div
-      className="catalog__movies-list"
-    />
-  </section>
-</div>
+      className="movie-card__wrap"
+    >
+      <div
+        className="movie-card__info"
+      >
+        <div
+          className="movie-card__poster"
+        >
+          <a
+            href="/movie-card/1"
+            onClick={[Function]}
+          >
+            <img
+              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              height="327"
+              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              width="218"
+            />
+          </a>
+        </div>
+        <div
+          className="movie-card__desc"
+        >
+          <h2
+            className="movie-card__title"
+          >
+            Fantastic Beasts: The Crimes of Grindelwald
+          </h2>
+          <p
+            className="movie-card__meta"
+          >
+            <span
+              className="movie-card__genre"
+            >
+              fantasy
+            </span>
+            <span
+              className="movie-card__year"
+            >
+              2003
+            </span>
+          </p>
+          <div
+            className="movie-card__buttons"
+          >
+            <button
+              className="btn btn--play movie-card__button"
+              type="button"
+            >
+              <svg
+                height="19"
+                viewBox="0 0 19 19"
+                width="19"
+              >
+                <use
+                  xlinkHref="#play-s"
+                />
+              </svg>
+              <span>
+                Play
+              </span>
+            </button>
+            <button
+              className="btn btn--list movie-card__button"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
+              >
+                <use
+                  xlinkHref="#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <div
+    className="page-content"
+  >
+    <section
+      className="catalog"
+    >
+      <h2
+        className="catalog__title visually-hidden"
+      >
+        Catalog
+      </h2>
+      <ul
+        className="catalog__genres-list"
+      >
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+            onClick={[Function]}
+          >
+            all genres
+          </a>
+        </li>
+      </ul>
+      <div
+        className="catalog__movies-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="/movie-card/2"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+            >
+              <img
+                alt="Bohemian Rhapsody"
+                height="175"
+                src="img/bohemian-rhapsody.jpg"
+                width="280"
+              />
+            </div>
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Bohemian Rhapsody
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="/movie-card/3"
+            onClick={[Function]}
+          >
+            <div
+              className="small-movie-card__image"
+            >
+              <img
+                alt="Macbeth"
+                height="175"
+                src="img/macbeth.jpg"
+                width="280"
+              />
+            </div>
+          </a>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Macbeth
+            </a>
+          </h3>
+        </article>
+      </div>
+    </section>
+  </div>,
+]
 `;

@@ -42,7 +42,7 @@ export const reducer = (state = initialState, action) => {
       const itemToRemoveIdx = state.favorites.findIndex((movie) => movie.id === action.payload);
       const updatedFavorites = itemToRemoveIdx > -1
         ? state.favorites
-          .slice(0, itemToRemoveIdx - 1)
+          .slice(0, itemToRemoveIdx)
           .concat(state.favorites.slice(itemToRemoveIdx + 1))
         : state.favorites;
       return Object.assign({}, state, {favorites: updatedFavorites});
