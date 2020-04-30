@@ -4,11 +4,11 @@ import {MyListButton} from '../my-list-button/my-list-button';
 import {MovieCardHeader} from '../movie-card-header/movie-card-header';
 import {PlayButton} from '../play-button/play-button';
 import {Footer} from '../footer/footer';
-import {useMovieRuntime} from '../../common-hooks/use-movie-runtime';
 import {useFavMovie} from '../../common-hooks/use-fav-movie';
 import {useMovieById} from '../../common-hooks/use-movie-by-id';
 import {useSimilarMovies} from './hooks';
 import {FilmsList} from '../films-list/films-list';
+import {Tabs} from '../tabs/tabs';
 import {useAppContext} from '../../reducer/reducer';
 
 // eslint-disable-next-line
@@ -16,7 +16,6 @@ export const MovieDetails = ({id, startVideoButtonHandler}) => {
   const {state} = useAppContext();
   const {movie} = useMovieById(id, state.filmsList);
   const {similarMovies} = useSimilarMovies(movie, state.filmsList);
-  const {time} = useMovieRuntime(movie.run_time);
   const {isFav, addToFavsClickHandler} = useFavMovie(movie);
   return (
     <Fragment>
@@ -58,59 +57,7 @@ export const MovieDetails = ({id, startVideoButtonHandler}) => {
             <img src={movie.poster_image} alt={movie.name} width="218" height="327" />}
             </div>
 
-            <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="movie-card__text movie-card__row">
-                <div className="movie-card__text-col">
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Director</strong>
-                    {// eslint-disable-next-line
-                  <span className="movie-card__details-value">{movie.director}</span>}
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Starring</strong>
-                    <span className="movie-card__details-value">
-                      {// eslint-disable-next-line
-                      movie.starring.map((star) => (
-                          <Fragment key={star}>
-                            {star} <br />
-                          </Fragment>
-                        ))
-                      }
-                    </span>
-                  </p>
-                </div>
-                <div className="movie-card__text-col">
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Run Time</strong>
-                    <span className="movie-card__details-value">{time.hours}h {time.minutes}m</span>
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Genre</strong>
-                    {// eslint-disable-next-line
-                  <span className="movie-card__details-value">{movie.genre}</span>}
-                  </p>
-                  <p className="movie-card__details-item">
-                    <strong className="movie-card__details-name">Released</strong>
-                    {// eslint-disable-next-line
-                  <span className="movie-card__details-value">{movie.released}</span>}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <Tabs movie={movie} />
           </div>
         </div>
       </section>

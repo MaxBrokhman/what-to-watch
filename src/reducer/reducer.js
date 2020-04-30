@@ -27,6 +27,7 @@ export const reducer = (state = initialState, action) => {
         genre: action.payload,
       });
     case `SET_FILMS`:
+      console.log(action.payload);
       return Object.assign({}, state, {filmsList: action.payload});
     case `SET_ERROR`:
       return Object.assign({}, state, {error: action.payload});
