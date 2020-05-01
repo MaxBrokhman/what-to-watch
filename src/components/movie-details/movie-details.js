@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 import {MyListButton} from '../my-list-button/my-list-button';
 import {MovieCardHeader} from '../movie-card-header/movie-card-header';
@@ -44,7 +45,7 @@ export const MovieDetails = ({id, startVideoButtonHandler}) => {
               <div className="movie-card__buttons">
                 <PlayButton clickHandler={startVideoButtonHandler(movie.id)} />
                 <MyListButton isFav={isFav} clickHandler={addToFavsClickHandler} />
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                <Link to={`/movie-card/${id}/add-review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>

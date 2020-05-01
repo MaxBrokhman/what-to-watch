@@ -15,6 +15,7 @@ import {
   Context
 } from '../../reducer/reducer';
 import {SignIn} from '../sign-in/sign-in';
+import {AddReview} from '../add-review/add-review';
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -27,8 +28,17 @@ export const App = () => {
           <SignIn />
         </Route>
         {
-          state.filmsList.length && <Route path='/movie-card/:id' render={({match}) => (
-            <MovieDetails id={match.params.id} startVideoButtonHandler={startVideoButtonHandler} />
+          state.filmsList.length && <Route
+            path='/movie-card/:id'
+            render={({match}) => (
+              <MovieDetails id={match.params.id} startVideoButtonHandler={startVideoButtonHandler} />
+            )}
+            exact
+          />
+        }
+        {
+          state.filmsList.length && <Route path='/movie-card/:id/add-review' render={({match}) => (
+            <AddReview id={match.params.id} />
           )} />
         }
         {
