@@ -67,7 +67,7 @@ export const MovieDetails = ({id, startVideoButtonHandler}: TMovieDetailsProps):
             <section className="catalog catalog--like-this">
               <h2 className="catalog__title">More like this</h2>
 
-              <FilmsList genre={movie.genre} films={similarMovies} />
+              <FilmsList films={similarMovies} />
             </section>
           )
         }

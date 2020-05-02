@@ -16,6 +16,7 @@ import {
 } from '../../reducer/reducer';
 import {SignIn} from '../sign-in/sign-in';
 import {AddReview} from '../add-review/add-review';
+import {MyList} from '../my-list/my-list';
 
 export const App = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -49,17 +50,16 @@ export const App = (): JSX.Element => {
             />;
           }}/>
         }
+        <Route path='/my-list'>
+          <MyList />
+        </Route>
         <Route path='/*'>
           {
             state.isAuthorizationRequired && <Redirect exact from='/*' to='/login' />
           }
           {
             !state.activeMovie && !state.isAuthorizationRequired && (
-              <MainPage
-                startVideoButtonHandler={startVideoButtonHandler}
-                films={state.filmsList}
-                genre={state.genre}
-              />
+              <MainPage startVideoButtonHandler={startVideoButtonHandler} />
             )
           }
         </Route>

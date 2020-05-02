@@ -1,30 +1,29 @@
 import React, {Fragment} from 'react';
 
 import {MovieCard} from '../movie-card/movie-card';
-import {useVideoTimer, useFilteredFilms} from './hooks';
+import {useVideoTimer, useLimitedFilms} from './hooks';
 import {TFilm} from '../../reducer/types';
 
 type TFilmsListProps = {
-  genre: string;
   films: Array<TFilm>;
 }
 
-export const FilmsList = ({genre, films}: TFilmsListProps): JSX.Element => {
+export const FilmsList = ({films}: TFilmsListProps): JSX.Element => {
   const {
     activeCard,
     hoverHandler,
     leaveHandler,
   } = useVideoTimer();
   const {
-    movies,
+    limitedFilms,
     showMoreClickHandler,
     areAllMoviesLoaded,
-  } = useFilteredFilms(genre, films);
+  } = useLimitedFilms(films);
   return (
     <Fragment>
       <div className="catalog__movies-list">
         {
-          movies.map((movie) =>
+          limitedFilms.map((movie) =>
             <MovieCard
               movie={movie}
               hoverHandler={hoverHandler}

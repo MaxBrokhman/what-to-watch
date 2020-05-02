@@ -49,7 +49,8 @@ exports[`Renders MainMovieCard component correctly 1`] = `
       className="user-block"
     >
       <a
-        href="#"
+        href="/login"
+        onClick={[Function]}
       >
         Sign In
       </a>

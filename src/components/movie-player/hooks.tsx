@@ -1,4 +1,4 @@
-import {useState, MutableRefObject} from 'react';
+import {useState, MutableRefObject, useEffect, SyntheticEvent} from 'react';
 
 type TUseMoviePlayer = {
   playClickHandler: () => void;
@@ -43,5 +43,51 @@ export const useMoviePlayer = (videoRef: MutableRefObject<HTMLVideoElement>): TU
     playButtonIcon,
     fullscreenButtonHandler,
     isControlsVisible,
+  };
+};
+
+type TUseMovieProgressProps = {
+  video: HTMLVideoElement;
+  runTime: number;
+  progress: HTMLProgressElement;
+  toggler: HTMLDivElement;
+}
+
+type TUseMovieProgress = {
+  onProgressClick: (evt: SyntheticEvent) => void;
+}
+
+export const useMovieProgress = ({
+  video,
+  runTime,
+  progress,
+  toggler,
+}: TUseMovieProgressProps): TUseMovieProgress => {
+  let animationId: number;
+  const setProgress = (): void => {
+    if (video && progress && toggler) {
+      const value = Math.floor(video.currentTime / runTime * 100);
+      progress.value = value;
+      toggler.style.left = `${value}%`;
+    }
+    animationId = requestAnimationFrame(setProgress);
+  };
+  useEffect(() => {
+    setProgress();
+    return (): void => {
+      cancelAnimationFrame(animationId);
+    };
+  }, [video, progress, toggler]);
+
+  const onProgressClick = (evt: SyntheticEvent<HTMLProgressElement, MouseEvent>): void => {
+    const x = evt.nativeEvent.pageX - progress.offsetLeft;
+    const value = Math.floor(x * (progress.max - 1) / progress.offsetWidth);
+    progress.value = value;
+    video.currentTime = runTime / 100 * value;
+    toggler.style.left = `${value}%`;
+  };
+
+  return {
+    onProgressClick,
   };
 };
